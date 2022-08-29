@@ -5,15 +5,19 @@ class NumberCoordinatorTests: XCTestCase {
     var screenFactory: MockNumberScreenFactoryProtocol!
     var pusher: MockPushing!
     var configuration: NumberCoordinator<MockPushing, MockPresenting, MockNumberScreenFactoryProtocol>.Configuration!
+    var analyticsTracker: MockAnalyticsTracking!
     var completion: (() -> Void)!
     var dismiss: (() -> Void)!
 
     override func setUp() {
         pusher = .init()
         screenFactory = .init()
+        analyticsTracker = .init()
+        
         configuration = .init(
             pusher: pusher,
             screenFactory: screenFactory,
+            analyticsTracker: analyticsTracker,
             completion: { [unowned self] in self.completion() },
             dismiss: { [unowned self] in self.dismiss() }
         )
@@ -24,7 +28,7 @@ class NumberCoordinatorTests: XCTestCase {
         let testScreen = MockPresenting()
         var screen: MockPresenting?
 
-        screenFactory.mockOne = { _, _ in testScreen }
+        screenFactory.mockOne = { _, _, _ in testScreen }
         pusher.mockPush = { screen = $0 }
 
         // When
@@ -39,7 +43,7 @@ class NumberCoordinatorTests: XCTestCase {
         var dismiss: (() -> Void)?
         var dismissed = false
 
-        screenFactory.mockOne = { _, mockDismiss in
+        screenFactory.mockOne = { _, _, mockDismiss in
             dismiss = mockDismiss
             return MockPresenting()
         }
@@ -61,7 +65,7 @@ class NumberCoordinatorTests: XCTestCase {
         var screen: MockPresenting?
         let completeOne = setupOneCompletion()
 
-        screenFactory.mockTwo = { _, _ in testScreen }
+        screenFactory.mockTwo = { _, _, _ in testScreen }
         pusher.mockPush = { screen = $0 }
 
         // When
@@ -78,7 +82,7 @@ class NumberCoordinatorTests: XCTestCase {
         var dismissed = false
         let completeOne = setupOneCompletion()
 
-        screenFactory.mockTwo = { _, mockDismiss in
+        screenFactory.mockTwo = { _, _, mockDismiss in
             dismiss = mockDismiss
             return MockPresenting()
         }
@@ -102,7 +106,7 @@ class NumberCoordinatorTests: XCTestCase {
         let completeOne = setupOneCompletion()
         let completeTwo = setupTwoCompletion()
 
-        screenFactory.mockThree = { _, _ in testScreen }
+        screenFactory.mockThree = { _, _, _ in testScreen }
         pusher.mockPush = { screen = $0 }
 
         // When
@@ -121,7 +125,7 @@ class NumberCoordinatorTests: XCTestCase {
         let completeOne = setupOneCompletion()
         let completeTwo = setupTwoCompletion()
 
-        screenFactory.mockThree = { _, mockDismiss in
+        screenFactory.mockThree = { _, _, mockDismiss in
             dismiss = mockDismiss
             return MockPresenting()
         }
@@ -196,7 +200,7 @@ extension NumberCoordinatorTests {
     private func setupOneCompletion() -> () -> Void {
         var completion: (() -> Void)?
 
-        screenFactory.mockOne = { mockCompletion, _ in
+        screenFactory.mockOne = { _, mockCompletion, _ in
             completion = mockCompletion
             return MockPresenting()
         }
@@ -207,7 +211,7 @@ extension NumberCoordinatorTests {
     private func setupTwoCompletion() -> () -> Void {
         var completion: (() -> Void)?
 
-        screenFactory.mockTwo = { mockCompletion, _ in
+        screenFactory.mockTwo = { _, mockCompletion, _ in
             completion = mockCompletion
             return MockPresenting()
         }
@@ -218,7 +222,7 @@ extension NumberCoordinatorTests {
     private func setupThreeCompletion(with presenter: MockPresenting = .init()) -> () -> Void {
         var completion: (() -> Void)?
 
-        screenFactory.mockThree = { mockCompletion, _ in
+        screenFactory.mockThree = { _, mockCompletion, _ in
             completion = mockCompletion
             return presenter
         }

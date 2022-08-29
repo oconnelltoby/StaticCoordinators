@@ -1,23 +1,41 @@
 import UIKit
 
 extension NumberViewModel {
-    init(number: Int, completion: @escaping () -> Void, dismiss: @escaping () -> Void) {
+    init(
+        number: Int,
+        analyticsTracker: AnalyticsTracking,
+        completion: @escaping () -> Void,
+        dismiss: @escaping () -> Void
+    ) {
         let formatter = NumberFormatter()
         formatter.numberStyle = .spellOut
-        let speltOutNumber = formatter.string(from: NSNumber(value: number))!.capitalized
-        self.init(title: speltOutNumber, label: "\(number)", completion: completion, dismiss: dismiss)
+        let title = formatter.string(from: NSNumber(value: number))!.capitalized
+        
+        let screenViewedEvent = NumberScreenEvent(properties: .init(title: title, number: number))
+        
+        self.init(
+            title: title,
+            label: "\(number)",
+            screenViewed: { analyticsTracker.track(event: screenViewedEvent) },
+            completion: completion,
+            dismiss: dismiss
+        )
     }
 }
 
 struct NumberViewModel {
     var title: String
     var label: String
+    var screenViewed: () -> Void
     var completion: () -> Void
     var dismiss: () -> Void
 }
 
 class NumberViewController: UIViewController {
+    private let viewModel: NumberViewModel
+    
     init(viewModel: NumberViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         title = viewModel.title
         view = NumberView(viewModel: viewModel)
@@ -27,6 +45,11 @@ class NumberViewController: UIViewController {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.screenViewed()
     }
 }
 

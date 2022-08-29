@@ -4,9 +4,24 @@ protocol NumberScreenFactoryProtocol {
     associatedtype Pusher: Pushing
     associatedtype Presenter: Presenting
     
-    func one(completion: @escaping () -> Void, dismiss: @escaping () -> Void) -> Presenter
-    func two(completion: @escaping () -> Void, dismiss: @escaping () -> Void) -> Presenter
-    func three(completion: @escaping () -> Void, dismiss: @escaping () -> Void) -> Presenter
+    func one(
+        analyticsTracker: AnalyticsTracking,
+        completion: @escaping () -> Void,
+        dismiss: @escaping () -> Void
+    ) -> Presenter
+    
+    func two(
+        analyticsTracker: AnalyticsTracking,
+        completion: @escaping () -> Void,
+        dismiss: @escaping () -> Void
+    ) -> Presenter
+    
+    func three(
+        analyticsTracker: AnalyticsTracking,
+        completion: @escaping () -> Void,
+        dismiss: @escaping () -> Void
+    ) -> Presenter
+    
     func completionAlert(startAgain: @escaping () -> Void) -> Presenter
 }
 
@@ -14,16 +29,34 @@ struct NumberViewControllerFactory: NumberScreenFactoryProtocol {
     typealias Presenter = UIViewController
     typealias Pusher = UINavigationController
     
-    func one(completion: @escaping () -> Void, dismiss: @escaping () -> Void) -> UIViewController {
-        NumberViewController(viewModel: .init(number: 1, completion: completion, dismiss: dismiss))
+    func one(
+        analyticsTracker: AnalyticsTracking,
+        completion: @escaping () -> Void,
+        dismiss: @escaping () -> Void
+    ) -> UIViewController {
+        NumberViewController(
+            viewModel: .init(number: 1, analyticsTracker: analyticsTracker, completion: completion, dismiss: dismiss)
+        )
     }
     
-    func two(completion: @escaping () -> Void, dismiss: @escaping () -> Void) -> UIViewController {
-        NumberViewController(viewModel: .init(number: 2, completion: completion, dismiss: dismiss))
+    func two(
+        analyticsTracker: AnalyticsTracking,
+        completion: @escaping () -> Void,
+        dismiss: @escaping () -> Void
+    ) -> UIViewController {
+        NumberViewController(
+            viewModel: .init(number: 2, analyticsTracker: analyticsTracker, completion: completion, dismiss: dismiss)
+        )
     }
     
-    func three(completion: @escaping () -> Void, dismiss: @escaping () -> Void) -> UIViewController {
-        NumberViewController(viewModel: .init(number: 3, completion: completion, dismiss: dismiss))
+    func three(
+        analyticsTracker: AnalyticsTracking,
+        completion: @escaping () -> Void,
+        dismiss: @escaping () -> Void
+    ) -> UIViewController {
+        NumberViewController(
+            viewModel: .init(number: 3, analyticsTracker: analyticsTracker, completion: completion, dismiss: dismiss)
+        )
     }
     
     func completionAlert(startAgain: @escaping () -> Void) -> UIViewController {

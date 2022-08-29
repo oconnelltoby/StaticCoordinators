@@ -27,6 +27,11 @@
 		F1DE3037289DA5D700AFF4A8 /* ColorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE3036289DA5D700AFF4A8 /* ColorCoordinator.swift */; };
 		F1DE3039289DA63D00AFF4A8 /* ColorViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE3038289DA63D00AFF4A8 /* ColorViewControllerFactory.swift */; };
 		F1DE303B289DE12100AFF4A8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE303A289DE12100AFF4A8 /* Extensions.swift */; };
+		F1F82C6828ACD1D700CEE025 /* AnalyticsTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C6728ACD1D700CEE025 /* AnalyticsTracking.swift */; };
+		F1F82C6B28ACD4FC00CEE025 /* AnalyticsPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C6A28ACD4FC00CEE025 /* AnalyticsPrinter.swift */; };
+		F1F82C7028ACD55100CEE025 /* NumberScreenEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C6F28ACD55100CEE025 /* NumberScreenEvents.swift */; };
+		F1F82C7228ACD55B00CEE025 /* ColorScreenEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C7128ACD55B00CEE025 /* ColorScreenEvents.swift */; };
+		F1F82C7428ACDC7700CEE025 /* MockAnalyticsTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C7328ACDC7700CEE025 /* MockAnalyticsTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,11 @@
 		F1DE3036289DA5D700AFF4A8 /* ColorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCoordinator.swift; sourceTree = "<group>"; };
 		F1DE3038289DA63D00AFF4A8 /* ColorViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewControllerFactory.swift; sourceTree = "<group>"; };
 		F1DE303A289DE12100AFF4A8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F1F82C6728ACD1D700CEE025 /* AnalyticsTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTracking.swift; sourceTree = "<group>"; };
+		F1F82C6A28ACD4FC00CEE025 /* AnalyticsPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPrinter.swift; sourceTree = "<group>"; };
+		F1F82C6F28ACD55100CEE025 /* NumberScreenEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberScreenEvents.swift; sourceTree = "<group>"; };
+		F1F82C7128ACD55B00CEE025 /* ColorScreenEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScreenEvents.swift; sourceTree = "<group>"; };
+		F1F82C7328ACDC7700CEE025 /* MockAnalyticsTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnalyticsTracking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +137,7 @@
 				F1605BEC28A90D4D0070CC08 /* MockPushing.swift */,
 				F1605BEE28A990C90070CC08 /* MockColorScreenFactoryProtocol.swift */,
 				F1605BF228A99FF00070CC08 /* MockNumberScreenFactoryProtocol.swift */,
+				F1F82C7328ACDC7700CEE025 /* MockAnalyticsTracking.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -170,6 +181,7 @@
 		F1DE3005289DA55600AFF4A8 /* StaticCoordinators */ = {
 			isa = PBXGroup;
 			children = (
+				F1F82C6928ACD4A900CEE025 /* AnalyticsTracking */,
 				F1605BE028A62FE50070CC08 /* Screens */,
 				F1605BDD28A62F650070CC08 /* Coordinators */,
 				F1605BD928A1CA1F0070CC08 /* ScreenFactory */,
@@ -190,6 +202,25 @@
 				F1605BE928A90D1A0070CC08 /* Mocks */,
 			);
 			path = StaticCoordinatorsTests;
+			sourceTree = "<group>";
+		};
+		F1F82C6928ACD4A900CEE025 /* AnalyticsTracking */ = {
+			isa = PBXGroup;
+			children = (
+				F1F82C6C28ACD53000CEE025 /* Events */,
+				F1F82C6728ACD1D700CEE025 /* AnalyticsTracking.swift */,
+				F1F82C6A28ACD4FC00CEE025 /* AnalyticsPrinter.swift */,
+			);
+			path = AnalyticsTracking;
+			sourceTree = "<group>";
+		};
+		F1F82C6C28ACD53000CEE025 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				F1F82C6F28ACD55100CEE025 /* NumberScreenEvents.swift */,
+				F1F82C7128ACD55B00CEE025 /* ColorScreenEvents.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,13 +323,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1605BE428A633B80070CC08 /* NumberViewControllerFactory.swift in Sources */,
+				F1F82C6828ACD1D700CEE025 /* AnalyticsTracking.swift in Sources */,
 				F1DE3037289DA5D700AFF4A8 /* ColorCoordinator.swift in Sources */,
+				F1F82C7228ACD55B00CEE025 /* ColorScreenEvents.swift in Sources */,
 				F1DE303B289DE12100AFF4A8 /* Extensions.swift in Sources */,
 				F1DE3039289DA63D00AFF4A8 /* ColorViewControllerFactory.swift in Sources */,
 				F1605BD628A1C43F0070CC08 /* Presenting.swift in Sources */,
 				F1605BDF28A62F9D0070CC08 /* NumberCoordinator.swift in Sources */,
+				F1F82C7028ACD55100CEE025 /* NumberScreenEvents.swift in Sources */,
 				F1DE300B289DA55600AFF4A8 /* ColorViewController.swift in Sources */,
 				F1DE3007289DA55600AFF4A8 /* AppDelegate.swift in Sources */,
+				F1F82C6B28ACD4FC00CEE025 /* AnalyticsPrinter.swift in Sources */,
 				F1605BE228A630190070CC08 /* NumberViewController.swift in Sources */,
 				F1605BD428A1C4120070CC08 /* Pushing.swift in Sources */,
 				F1DE3009289DA55600AFF4A8 /* SceneDelegate.swift in Sources */,
@@ -315,6 +350,7 @@
 				F1605BED28A90D4D0070CC08 /* MockPushing.swift in Sources */,
 				F1605BF328A99FF00070CC08 /* MockNumberScreenFactoryProtocol.swift in Sources */,
 				F1605BFF28A9ADB50070CC08 /* NumberViewModelTests.swift in Sources */,
+				F1F82C7428ACDC7700CEE025 /* MockAnalyticsTracking.swift in Sources */,
 				F1605BE828A90D0E0070CC08 /* NumberCoordinatorTests.swift in Sources */,
 				F1605BEB28A90D280070CC08 /* MockPresenting.swift in Sources */,
 			);

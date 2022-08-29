@@ -8,6 +8,7 @@ struct ColorCoordinator<Pusher: AnyObject, Presenter: AnyObject, ScreenFactory: 
     struct Configuration {
         weak var pusher: Pusher?
         var screenFactory: ScreenFactory
+        var analyticsTracker: AnalyticsTracking
     }
     
     static func start(configuration: Configuration) {
@@ -15,20 +16,27 @@ struct ColorCoordinator<Pusher: AnyObject, Presenter: AnyObject, ScreenFactory: 
     }
     
     private static func pushRedScreen(configuration: Configuration) {
-        let completion = { pushGreenScreen(configuration: configuration) }
-        let screen = configuration.screenFactory.red(completion: completion)
+        let screen = configuration.screenFactory.red(
+            analyticsTracker: configuration.analyticsTracker,
+            completion: { pushGreenScreen(configuration: configuration) }
+        )
         configuration.pusher?.push(presenter: screen)
     }
     
     private static func pushGreenScreen(configuration: Configuration) {
-        let completion = { pushBlueScreen(configuration: configuration) }
-        let screen = configuration.screenFactory.green(completion: completion)
+        let screen = configuration.screenFactory.green(
+            analyticsTracker: configuration.analyticsTracker,
+            completion: { pushBlueScreen(configuration: configuration) }
+        )
         configuration.pusher?.push(presenter: screen)
     }
     
     private static func pushBlueScreen(configuration: Configuration) {
         var completion: (() -> Void)?
-        let screen = configuration.screenFactory.blue(completion: { completion?() })
+        let screen = configuration.screenFactory.blue(
+            analyticsTracker: configuration.analyticsTracker,
+            completion: { completion?() }
+        )
         configuration.pusher?.push(presenter: screen)
         completion = { [weak screen] in
             presentNumberCoordinator(on: screen, configuration: configuration)
@@ -40,6 +48,7 @@ struct ColorCoordinator<Pusher: AnyObject, Presenter: AnyObject, ScreenFactory: 
         var dismiss: (() -> Void)?
 
         let screen = configuration.screenFactory.numberCoordinator(
+            analyticsTracker: configuration.analyticsTracker,
             completion: { completion?() },
             dismiss: { dismiss?() }
         )

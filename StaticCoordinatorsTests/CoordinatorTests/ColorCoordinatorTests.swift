@@ -5,11 +5,13 @@ class ColorCoordinatorTests: XCTestCase {
     var screenFactory: MockColorScreenFactoryProtocol!
     var pusher: MockPushing!
     var configuration: ColorCoordinator<MockPushing, MockPresenting, MockColorScreenFactoryProtocol>.Configuration!
+    var analyticsTracker: MockAnalyticsTracking!
     
     override func setUp() {
         pusher = .init()
         screenFactory = .init()
-        configuration = .init(pusher: pusher, screenFactory: screenFactory)
+        analyticsTracker = .init()
+        configuration = .init(pusher: pusher, screenFactory: screenFactory, analyticsTracker: analyticsTracker)
     }
 
     func testRed() {
@@ -17,7 +19,7 @@ class ColorCoordinatorTests: XCTestCase {
         let testScreen = MockPresenting()
         var screen: MockPresenting?
 
-        screenFactory.mockRed = { _ in testScreen }
+        screenFactory.mockRed = { _, _ in testScreen }
         pusher.mockPush = { screen = $0 }
 
         // When
@@ -33,7 +35,7 @@ class ColorCoordinatorTests: XCTestCase {
         var screen: MockPresenting?
         let completeRed = setupRedCompletion()
         
-        screenFactory.mockGreen = { _ in testScreen }
+        screenFactory.mockGreen = { _, _ in testScreen }
         pusher.mockPush = { screen = $0 }
 
         // When
@@ -51,7 +53,7 @@ class ColorCoordinatorTests: XCTestCase {
         let completeRed = setupRedCompletion()
         let completeGreen = setupGreenCompletion()
         
-        screenFactory.mockBlue = { _ in testScreen }
+        screenFactory.mockBlue = { _, _ in testScreen }
         pusher.mockPush = { screen = $0 }
 
         // When
@@ -73,7 +75,7 @@ class ColorCoordinatorTests: XCTestCase {
         let completeBlue = setupBlueCompletion(with: presentingScreen)
 
         pusher.mockPush = { _ in }
-        screenFactory.mockNumberCoordinator = { _, _ in presentedScreen }
+        screenFactory.mockNumberCoordinator = { _, _, _ in presentedScreen }
         presentingScreen.mockPresentPusher = { mockScreen, _ in screen = mockScreen }
 
         // When
@@ -147,8 +149,8 @@ extension ColorCoordinatorTests {
     private func setupRedCompletion() -> () -> Void {
         var completion: (() -> Void)?
         
-        screenFactory.mockRed = {
-            completion = $0
+        screenFactory.mockRed = { _, mockCompletion in
+            completion = mockCompletion
             return MockPresenting()
         }
         
@@ -158,8 +160,8 @@ extension ColorCoordinatorTests {
     private func setupGreenCompletion() -> () -> Void {
         var completion: (() -> Void)?
         
-        screenFactory.mockGreen = {
-            completion = $0
+        screenFactory.mockGreen = { _, mockCompletion in
+            completion = mockCompletion
             return MockPresenting()
         }
         
@@ -169,8 +171,8 @@ extension ColorCoordinatorTests {
     private func setupBlueCompletion(with presenting: MockPresenting = .init()) -> () -> Void {
         var completion: (() -> Void)?
         
-        screenFactory.mockBlue = {
-            completion = $0
+        screenFactory.mockBlue = { _, mockCompletion in
+            completion = mockCompletion
             return presenting
         }
         
@@ -180,7 +182,7 @@ extension ColorCoordinatorTests {
     private func setupNumberCoordinatorCompletion() -> () -> Void {
         var completion: (() -> Void)?
         
-        screenFactory.mockNumberCoordinator = { mockCompletion, _ in
+        screenFactory.mockNumberCoordinator = { _, mockCompletion, _ in
             completion = mockCompletion
             return MockPushing()
         }
@@ -191,7 +193,7 @@ extension ColorCoordinatorTests {
     private func setupNumberCoordinatorDismiss() -> () -> Void {
         var dismiss: (() -> Void)?
         
-        screenFactory.mockNumberCoordinator = { _, mockDismiss in
+        screenFactory.mockNumberCoordinator = { _, _, mockDismiss in
             dismiss = mockDismiss
             return MockPushing()
         }

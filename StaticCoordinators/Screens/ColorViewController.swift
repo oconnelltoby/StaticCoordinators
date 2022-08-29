@@ -5,31 +5,60 @@ extension ColorViewModel {
         case red
         case green
         case blue
+        
+        fileprivate var properties: (title: String, color: UIColor) {
+            switch self {
+            case .red:
+                return ("Red", .systemRed)
+            case .green:
+                return ("Green", .systemGreen)
+            case .blue:
+                return ("Blue", .systemBlue)
+            }
+        }
     }
     
-    init(style: Style, completion: @escaping () -> Void) {
-        switch style {
-        case .red:
-            self.init(color: .systemRed, title: "Red", completion: completion)
-        case .green:
-            self.init(color: .systemGreen, title: "Green", completion: completion)
-        case .blue:
-            self.init(color: .systemBlue, title: "Blue", completion: completion)
-        }
+    init(style: Style, analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) {
+        let ciColor = CIColor(color: style.properties.color)
+        
+        let screenViewedEvent = ColorScreenEvent(
+            properties: .init(
+                title: style.properties.title,
+                red: ciColor.red,
+                green: ciColor.green,
+                blue: ciColor.blue
+            )
+        )
+        
+        self.init(
+            color: style.properties.color,
+            title: style.properties.title,
+            screenViewed: { analyticsTracker.track(event: screenViewedEvent) },
+            completion: completion
+        )
     }
 }
 
 struct ColorViewModel {
     var color: UIColor
     var title: String
+    var screenViewed: () -> Void
     var completion: () -> Void
 }
 
 class ColorViewController: UIViewController {
+    private let viewModel: ColorViewModel
+    
     init(viewModel: ColorViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         title = viewModel.title
         view = ColorView(viewModel: viewModel)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.screenViewed()
     }
 
     required init?(coder: NSCoder) {

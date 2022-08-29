@@ -8,6 +8,7 @@ struct NumberCoordinator<Pusher: AnyObject, Presenter: AnyObject, ScreenFactory:
     struct Configuration {
         weak var pusher: Pusher?
         var screenFactory: ScreenFactory
+        var analyticsTracker: AnalyticsTracking
         var completion: () -> Void
         var dismiss: () -> Void
     }
@@ -17,20 +18,30 @@ struct NumberCoordinator<Pusher: AnyObject, Presenter: AnyObject, ScreenFactory:
     }
     
     static func pushOneScreen(configuration: Configuration) {
-        let completion = { pushTwoScreen(configuration: configuration) }
-        let screen = configuration.screenFactory.one(completion: completion, dismiss: configuration.dismiss)
+        let screen = configuration.screenFactory.one(
+            analyticsTracker: configuration.analyticsTracker,
+            completion: { pushTwoScreen(configuration: configuration) },
+            dismiss: configuration.dismiss
+        )
         configuration.pusher?.push(presenter: screen)
     }
     
     static func pushTwoScreen(configuration: Configuration) {
-        let completion = { pushThreeScreen(configuration: configuration) }
-        let screen = configuration.screenFactory.two(completion: completion, dismiss: configuration.dismiss)
+        let screen = configuration.screenFactory.two(
+            analyticsTracker: configuration.analyticsTracker,
+            completion: { pushThreeScreen(configuration: configuration) },
+            dismiss: configuration.dismiss
+        )
         configuration.pusher?.push(presenter: screen)
     }
     
     static func pushThreeScreen(configuration: Configuration) {
         var completion: (() -> Void)?
-        let screen = configuration.screenFactory.three(completion: { completion?() }, dismiss: configuration.dismiss)
+        let screen = configuration.screenFactory.three(
+            analyticsTracker: configuration.analyticsTracker,
+            completion: { completion?() },
+            dismiss: configuration.dismiss
+        )
         configuration.pusher?.push(presenter: screen)
         completion = { [weak screen] in
             presentCompletionAlert(on: screen, configuration: configuration)

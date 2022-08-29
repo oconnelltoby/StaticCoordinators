@@ -14,7 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let configuration = ColorCoordinator.Configuration(
             pusher: navigationController,
-            screenFactory: ColorViewControllerFactory()
+            screenFactory: ColorViewControllerFactory(),
+            analyticsTracker: AnalyticsPrinter()
         )
         
         ColorCoordinator<UINavigationController, UIViewController, ColorViewControllerFactory>.start(configuration: configuration)
