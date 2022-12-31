@@ -29,7 +29,7 @@ class NumberCoordinatorTests: XCTestCase {
         var screen: MockPresenting?
 
         screenFactory.mockOne = { _, _, _ in testScreen }
-        pusher.mockPush = { screen = $0 }
+        pusher.mockPush = { mockScreen, _ in screen = mockScreen }
 
         // When
         NumberCoordinator.start(configuration: configuration)
@@ -49,7 +49,7 @@ class NumberCoordinatorTests: XCTestCase {
         }
         
         self.dismiss = { dismissed = true }
-        pusher.mockPush = { _ in }
+        pusher.mockPush = { _, _ in }
 
         // When
         NumberCoordinator.start(configuration: configuration)
@@ -66,7 +66,7 @@ class NumberCoordinatorTests: XCTestCase {
         let completeOne = setupOneCompletion()
 
         screenFactory.mockTwo = { _, _, _ in testScreen }
-        pusher.mockPush = { screen = $0 }
+        pusher.mockPush = { mockScreen, _ in screen = mockScreen }
 
         // When
         NumberCoordinator.start(configuration: configuration)
@@ -88,7 +88,7 @@ class NumberCoordinatorTests: XCTestCase {
         }
         
         self.dismiss = { dismissed = true }
-        pusher.mockPush = { _ in }
+        pusher.mockPush = { _, _ in }
 
         // When
         NumberCoordinator.start(configuration: configuration)
@@ -107,7 +107,7 @@ class NumberCoordinatorTests: XCTestCase {
         let completeTwo = setupTwoCompletion()
 
         screenFactory.mockThree = { _, _, _ in testScreen }
-        pusher.mockPush = { screen = $0 }
+        pusher.mockPush = { mockScreen, _ in screen = mockScreen }
 
         // When
         NumberCoordinator.start(configuration: configuration)
@@ -131,7 +131,7 @@ class NumberCoordinatorTests: XCTestCase {
         }
         
         self.dismiss = { dismissed = true }
-        pusher.mockPush = { _ in }
+        pusher.mockPush = { _, _ in }
 
         // When
         NumberCoordinator.start(configuration: configuration)
@@ -153,7 +153,7 @@ class NumberCoordinatorTests: XCTestCase {
         let completeThree = setupThreeCompletion(with: presentingScreen)
 
         screenFactory.mockCompletionAlert = { _ in testScreen }
-        pusher.mockPush = { _ in }
+        pusher.mockPush = { _, _ in }
         presentingScreen.mockPresentPresenter = { mockScreen, _ in screen = mockScreen }
 
         // When
@@ -181,7 +181,7 @@ class NumberCoordinatorTests: XCTestCase {
         }
         
         self.completion = { completed = true }
-        pusher.mockPush = { _ in }
+        pusher.mockPush = { _, _ in }
         presentingScreen.mockPresentPresenter = { _, _ in }
 
         // When

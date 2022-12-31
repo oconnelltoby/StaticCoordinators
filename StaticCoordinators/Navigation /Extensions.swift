@@ -15,15 +15,27 @@ extension UIViewController: Presenting {
 }
 
 extension UINavigationController: Pushing {
-    func push(presenter: UIViewController) {
-        pushViewController(presenter, animated: true)
+    func push(presenter: UIViewController, animated: Bool) {
+        pushViewController(presenter, animated: animated)
     }
     
-    func pop() {
-        popViewController(animated: true)
+    func pop(animated: Bool) {
+        popViewController(animated: animated)
     }
     
-    func popToRoot() {
-        popToRootViewController(animated: true)
+    func popToRoot(animated: Bool) {
+        popToRootViewController(animated: animated)
+    }
+    
+    func popTo(presenter: UIViewController, animated: Bool) {
+        popToViewController(presenter, animated: animated)
+    }
+    
+    func setPresenters(_ presenters: [UIViewController], animated: Bool) {
+        setViewControllers(presenters, animated: animated)
+    }
+    
+    var presenters: [UIViewController] {
+        viewControllers
     }
 }

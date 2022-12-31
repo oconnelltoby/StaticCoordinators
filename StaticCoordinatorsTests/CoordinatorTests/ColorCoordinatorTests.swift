@@ -20,7 +20,7 @@ class ColorCoordinatorTests: XCTestCase {
         var screen: MockPresenting?
 
         screenFactory.mockRed = { _, _ in testScreen }
-        pusher.mockPush = { screen = $0 }
+        pusher.mockPush = { mockScreen, _ in screen = mockScreen }
 
         // When
         ColorCoordinator.start(configuration: configuration)
@@ -36,7 +36,7 @@ class ColorCoordinatorTests: XCTestCase {
         let completeRed = setupRedCompletion()
         
         screenFactory.mockGreen = { _, _ in testScreen }
-        pusher.mockPush = { screen = $0 }
+        pusher.mockPush = { mockScreen, _ in screen = mockScreen }
 
         // When
         ColorCoordinator.start(configuration: configuration)
@@ -54,7 +54,7 @@ class ColorCoordinatorTests: XCTestCase {
         let completeGreen = setupGreenCompletion()
         
         screenFactory.mockBlue = { _, _ in testScreen }
-        pusher.mockPush = { screen = $0 }
+        pusher.mockPush = { mockScreen, _ in screen = mockScreen }
 
         // When
         ColorCoordinator.start(configuration: configuration)
@@ -74,7 +74,7 @@ class ColorCoordinatorTests: XCTestCase {
         let completeGreen = setupGreenCompletion()
         let completeBlue = setupBlueCompletion(with: presentingScreen)
 
-        pusher.mockPush = { _ in }
+        pusher.mockPush = { _, _ in }
         screenFactory.mockNumberCoordinator = { _, _, _ in presentedScreen }
         presentingScreen.mockPresentPusher = { mockScreen, _ in screen = mockScreen }
 
@@ -99,13 +99,13 @@ class ColorCoordinatorTests: XCTestCase {
         var dismissed = false
         var dismissalCompleted: (() -> Void)?
 
-        pusher.mockPush = { _ in }
+        pusher.mockPush = { _, _ in }
         presentingScreen.mockPresentPusher = { _, _ in }
         presentingScreen.mockDismiss = {
             dismissalCompleted = $0
             dismissed = true
         }
-        pusher.mockPopToRoot = { poppedToRoot = true }
+        pusher.mockPopToRoot = { _ in poppedToRoot = true }
 
         // When
         ColorCoordinator.start(configuration: configuration)
@@ -129,7 +129,7 @@ class ColorCoordinatorTests: XCTestCase {
         let dismissNumberCoordinator = setupNumberCoordinatorDismiss()
         var dismissed = false
 
-        pusher.mockPush = { _ in }
+        pusher.mockPush = { _, _ in }
         presentingScreen.mockPresentPusher = { _, _ in }
         presentingScreen.mockDismiss = { _ in dismissed = true  }
 
