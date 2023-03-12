@@ -1,10 +1,8 @@
-struct NumberCoordinator<Pusher: AnyObject, Presenter: AnyObject, ScreenFactory: NumberScreenFactoryProtocol> where
-    Pusher.Presenter == Presenter,
-    Presenter.Presenter == Presenter,
-    Presenter.Pusher == Pusher,
-    ScreenFactory.Pusher == Pusher,
-    ScreenFactory.Presenter == Presenter
-{
+struct NumberCoordinator<
+    Pusher: AnyObject & Pushing<Presenter>,
+    Presenter: AnyObject & Presenting<Pusher, Presenter>,
+    ScreenFactory: NumberScreenFactoryProtocol<Pusher, Presenter>
+> {
     struct Configuration {
         weak var pusher: Pusher?
         var screenFactory: ScreenFactory

@@ -1,6 +1,6 @@
 import UIKit
 
-protocol ColorScreenFactoryProtocol {
+protocol ColorScreenFactoryProtocol<Pusher, Presenter> {
     associatedtype Pusher: Pushing
     associatedtype Presenter: Presenting
     

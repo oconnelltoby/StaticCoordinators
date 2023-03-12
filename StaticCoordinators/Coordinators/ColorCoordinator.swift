@@ -1,10 +1,8 @@
-struct ColorCoordinator<Pusher: AnyObject, Presenter: AnyObject, ScreenFactory: ColorScreenFactoryProtocol> where
-    Pusher.Presenter == Presenter,
-    Presenter.Presenter == Presenter,
-    Presenter.Pusher == Pusher,
-    ScreenFactory.Pusher == Pusher,
-    ScreenFactory.Presenter == Presenter
-{
+struct ColorCoordinator<
+    Pusher: AnyObject & Pushing<Presenter>,
+    Presenter: AnyObject & Presenting<Pusher, Presenter>,
+    ScreenFactory: ColorScreenFactoryProtocol<Pusher, Presenter>
+> {
     struct Configuration {
         weak var pusher: Pusher?
         var screenFactory: ScreenFactory

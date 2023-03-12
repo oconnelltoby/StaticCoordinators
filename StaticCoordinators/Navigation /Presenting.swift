@@ -1,4 +1,4 @@
-protocol Presenting {
+protocol Presenting<Pusher, Presenter> {
     associatedtype Pusher: Pushing
     associatedtype Presenter: Presenting
 

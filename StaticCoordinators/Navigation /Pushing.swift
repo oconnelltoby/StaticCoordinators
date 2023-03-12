@@ -1,4 +1,4 @@
-protocol Pushing {
+protocol Pushing<Presenter> {
     associatedtype Presenter: Presenting
     
     func push(presenter: Presenter, animated: Bool)

@@ -1,6 +1,6 @@
 import UIKit
 
-protocol NumberScreenFactoryProtocol {
+protocol NumberScreenFactoryProtocol<Pusher, Presenter> {
     associatedtype Pusher: Pushing
     associatedtype Presenter: Presenting
     
