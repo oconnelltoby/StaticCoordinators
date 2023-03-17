@@ -1,19 +1,19 @@
 @testable import StaticCoordinators
 
 class MockNumberScreenFactoryProtocol: NumberScreenFactoryProtocol {
-    typealias Pusher = MockPushing
-    typealias Presenter = MockPresenting
+    typealias NavigationController = MockNavigationControlling
+    typealias ViewController = MockViewControlling
     
-    var mockOne: ((AnalyticsTracking, @escaping () -> Void, @escaping () -> Void) -> MockPresenting)!
-    var mockTwo: ((AnalyticsTracking, @escaping () -> Void, @escaping () -> Void) -> MockPresenting)!
-    var mockThree: ((AnalyticsTracking, @escaping () -> Void, @escaping () -> Void) -> MockPresenting)!
-    var mockCompletionAlert: ((@escaping () -> Void) -> MockPresenting)!
+    var mockOne: ((AnalyticsTracking, @escaping () -> Void, @escaping () -> Void) -> MockViewControlling)!
+    var mockTwo: ((AnalyticsTracking, @escaping () -> Void, @escaping () -> Void) -> MockViewControlling)!
+    var mockThree: ((AnalyticsTracking, @escaping () -> Void, @escaping () -> Void) -> MockViewControlling)!
+    var mockCompletionAlert: ((@escaping () -> Void) -> MockViewControlling)!
 
     func one(
         analyticsTracker: AnalyticsTracking,
         completion: @escaping () -> Void,
         dismiss: @escaping () -> Void
-    ) -> MockPresenting {
+    ) -> MockViewControlling {
         mockOne(analyticsTracker, completion, dismiss)
     }
     
@@ -21,7 +21,7 @@ class MockNumberScreenFactoryProtocol: NumberScreenFactoryProtocol {
         analyticsTracker: AnalyticsTracking,
         completion: @escaping () -> Void,
         dismiss: @escaping () -> Void
-    ) -> MockPresenting {
+    ) -> MockViewControlling {
         mockTwo(analyticsTracker, completion, dismiss)
     }
     
@@ -29,11 +29,11 @@ class MockNumberScreenFactoryProtocol: NumberScreenFactoryProtocol {
         analyticsTracker: AnalyticsTracking,
         completion: @escaping () -> Void,
         dismiss: @escaping () -> Void
-    ) -> MockPresenting {
+    ) -> MockViewControlling {
         mockThree(analyticsTracker, completion, dismiss)
     }
     
-    func completionAlert(startAgain: @escaping () -> Void) -> MockPresenting {
+    func completionAlert(startAgain: @escaping () -> Void) -> MockViewControlling {
         mockCompletionAlert(startAgain)
     }
 }

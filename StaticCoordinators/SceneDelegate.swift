@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.tintColor = .label
         
         let configuration = ColorCoordinator.Configuration(
-            pusher: navigationController,
+            navigationController: navigationController,
             screenFactory: ColorViewControllerFactory(),
             analyticsTracker: AnalyticsPrinter()
         )

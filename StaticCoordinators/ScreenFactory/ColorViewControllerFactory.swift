@@ -1,22 +1,20 @@
 import UIKit
 
-protocol ColorScreenFactoryProtocol<Pusher, Presenter> {
-    associatedtype Pusher: Pushing
-    associatedtype Presenter: Presenting
+protocol ColorScreenFactoryProtocol<ViewController> {
+    associatedtype ViewController: ViewControlling
     
-    func red(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> Presenter
-    func green(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> Presenter
-    func blue(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> Presenter
+    func red(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> ViewController
+    func green(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> ViewController
+    func blue(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> ViewController
     func numberCoordinator(
         analyticsTracker: AnalyticsTracking,
         completion: @escaping () -> Void,
         dismiss: @escaping () -> Void
-    ) -> Pusher
+    ) -> ViewController
 }
 
 struct ColorViewControllerFactory: ColorScreenFactoryProtocol {
-    typealias Presenter = UIViewController
-    typealias Pusher = UINavigationController
+    typealias ViewController = UIViewController
     
     func red(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> UIViewController {
         ColorViewController(viewModel: .init(style: .red, analyticsTracker: analyticsTracker, completion: completion))
@@ -34,11 +32,11 @@ struct ColorViewControllerFactory: ColorScreenFactoryProtocol {
         analyticsTracker: AnalyticsTracking,
         completion: @escaping () -> Void,
         dismiss: @escaping () -> Void
-    ) -> UINavigationController {
+    ) -> UIViewController {
         let navigationController = UINavigationController()
         
         let configuration = NumberCoordinator.Configuration(
-            pusher: navigationController,
+            navigationController: navigationController,
             screenFactory: NumberViewControllerFactory(),
             analyticsTracker: analyticsTracker,
             completion: completion,

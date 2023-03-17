@@ -1,33 +1,31 @@
 import UIKit
 
-protocol NumberScreenFactoryProtocol<Pusher, Presenter> {
-    associatedtype Pusher: Pushing
-    associatedtype Presenter: Presenting
+protocol NumberScreenFactoryProtocol<ViewController> {
+    associatedtype ViewController: ViewControlling
     
     func one(
         analyticsTracker: AnalyticsTracking,
         completion: @escaping () -> Void,
         dismiss: @escaping () -> Void
-    ) -> Presenter
+    ) -> ViewController
     
     func two(
         analyticsTracker: AnalyticsTracking,
         completion: @escaping () -> Void,
         dismiss: @escaping () -> Void
-    ) -> Presenter
+    ) -> ViewController
     
     func three(
         analyticsTracker: AnalyticsTracking,
         completion: @escaping () -> Void,
         dismiss: @escaping () -> Void
-    ) -> Presenter
+    ) -> ViewController
     
-    func completionAlert(startAgain: @escaping () -> Void) -> Presenter
+    func completionAlert(startAgain: @escaping () -> Void) -> ViewController
 }
 
 struct NumberViewControllerFactory: NumberScreenFactoryProtocol {
-    typealias Presenter = UIViewController
-    typealias Pusher = UINavigationController
+    typealias ViewController = UIViewController
     
     func one(
         analyticsTracker: AnalyticsTracking,

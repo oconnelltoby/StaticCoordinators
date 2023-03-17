@@ -1,10 +1,10 @@
 struct ColorCoordinator<
-    Pusher: AnyObject & Pushing<Presenter>,
-    Presenter: AnyObject & Presenting<Pusher, Presenter>,
-    ScreenFactory: ColorScreenFactoryProtocol<Pusher, Presenter>
+    NavigationController: AnyObject & NavigationControlling<ViewController>,
+    ViewController: AnyObject & ViewControlling<ViewController>,
+    ScreenFactory: ColorScreenFactoryProtocol<ViewController>
 > {
     struct Configuration {
-        weak var pusher: Pusher?
+        weak var navigationController: NavigationController?
         var screenFactory: ScreenFactory
         var analyticsTracker: AnalyticsTracking
     }
@@ -18,7 +18,7 @@ struct ColorCoordinator<
             analyticsTracker: configuration.analyticsTracker,
             completion: { pushGreenScreen(configuration: configuration) }
         )
-        configuration.pusher?.push(presenter: screen)
+        configuration.navigationController?.pushViewController(screen)
     }
     
     private static func pushGreenScreen(configuration: Configuration) {
@@ -26,7 +26,7 @@ struct ColorCoordinator<
             analyticsTracker: configuration.analyticsTracker,
             completion: { pushBlueScreen(configuration: configuration) }
         )
-        configuration.pusher?.push(presenter: screen)
+        configuration.navigationController?.pushViewController(screen)
     }
     
     private static func pushBlueScreen(configuration: Configuration) {
@@ -35,13 +35,13 @@ struct ColorCoordinator<
             analyticsTracker: configuration.analyticsTracker,
             completion: { completion?() }
         )
-        configuration.pusher?.push(presenter: screen)
+        configuration.navigationController?.pushViewController(screen)
         completion = { [weak screen] in
             presentNumberCoordinator(on: screen, configuration: configuration)
         }
     }
  
-    private static func presentNumberCoordinator(on presentingScreen: Presenter?, configuration: Configuration) {
+    private static func presentNumberCoordinator(on presentingScreen: ViewController?, configuration: Configuration) {
         var completion: (() -> Void)?
         var dismiss: (() -> Void)?
 
@@ -51,11 +51,11 @@ struct ColorCoordinator<
             dismiss: { dismiss?() }
         )
         
-        presentingScreen?.present(pusher: screen)
+        presentingScreen?.present(screen)
         
         completion = {
-            presentingScreen?.dismiss {
-                configuration.pusher?.popToRoot()
+            presentingScreen?.dismiss(animated: true) {
+                configuration.navigationController?.popToRootViewController()
             }
         }
         

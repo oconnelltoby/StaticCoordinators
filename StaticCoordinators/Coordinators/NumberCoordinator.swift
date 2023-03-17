@@ -1,10 +1,10 @@
 struct NumberCoordinator<
-    Pusher: AnyObject & Pushing<Presenter>,
-    Presenter: AnyObject & Presenting<Pusher, Presenter>,
-    ScreenFactory: NumberScreenFactoryProtocol<Pusher, Presenter>
+    NavigationController: AnyObject & NavigationControlling<ViewController>,
+    ViewController: AnyObject & ViewControlling<ViewController>,
+    ScreenFactory: NumberScreenFactoryProtocol<ViewController>
 > {
     struct Configuration {
-        weak var pusher: Pusher?
+        weak var navigationController: NavigationController?
         var screenFactory: ScreenFactory
         var analyticsTracker: AnalyticsTracking
         var completion: () -> Void
@@ -21,7 +21,7 @@ struct NumberCoordinator<
             completion: { pushTwoScreen(configuration: configuration) },
             dismiss: configuration.dismiss
         )
-        configuration.pusher?.push(presenter: screen)
+        configuration.navigationController?.pushViewController(screen)
     }
     
     static func pushTwoScreen(configuration: Configuration) {
@@ -30,7 +30,7 @@ struct NumberCoordinator<
             completion: { pushThreeScreen(configuration: configuration) },
             dismiss: configuration.dismiss
         )
-        configuration.pusher?.push(presenter: screen)
+        configuration.navigationController?.pushViewController(screen)
     }
     
     static func pushThreeScreen(configuration: Configuration) {
@@ -40,14 +40,14 @@ struct NumberCoordinator<
             completion: { completion?() },
             dismiss: configuration.dismiss
         )
-        configuration.pusher?.push(presenter: screen)
+        configuration.navigationController?.pushViewController(screen)
         completion = { [weak screen] in
             presentCompletionAlert(on: screen, configuration: configuration)
         }
     }
  
-    static func presentCompletionAlert(on presentingScreen: Presenter?, configuration: Configuration) {
+    static func presentCompletionAlert(on presentingScreen: ViewController?, configuration: Configuration) {
         let screen = configuration.screenFactory.completionAlert(startAgain: configuration.completion)
-        presentingScreen?.present(presenter: screen)
+        presentingScreen?.present(screen)
     }
 }
