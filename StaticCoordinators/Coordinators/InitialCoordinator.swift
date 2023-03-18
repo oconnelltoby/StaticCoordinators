@@ -19,7 +19,7 @@ struct InitialCoordinator<
         configuration.navigationController?.pushViewController(screen, animated: true)
     }
     
-    static func showColorCoordinator(configuration: Configuration) {
+    private static func showColorCoordinator(configuration: Configuration) {
         configuration.screenBuilder.colorCoordinator(
             navigationCoordinator: configuration.navigationController,
             analyticsTracker: configuration.analyticsTracker

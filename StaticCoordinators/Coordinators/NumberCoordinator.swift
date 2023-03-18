@@ -15,7 +15,7 @@ struct NumberCoordinator<
         pushOneScreen(configuration: configuration)
     }
     
-    static func pushOneScreen(configuration: Configuration) {
+    private static func pushOneScreen(configuration: Configuration) {
         let screen = configuration.screenBuilder.one(
             analyticsTracker: configuration.analyticsTracker,
             completion: { pushTwoScreen(configuration: configuration) },
@@ -24,7 +24,7 @@ struct NumberCoordinator<
         configuration.navigationController?.pushViewController(screen)
     }
     
-    static func pushTwoScreen(configuration: Configuration) {
+    private static func pushTwoScreen(configuration: Configuration) {
         let screen = configuration.screenBuilder.two(
             analyticsTracker: configuration.analyticsTracker,
             completion: { pushThreeScreen(configuration: configuration) },
@@ -33,7 +33,7 @@ struct NumberCoordinator<
         configuration.navigationController?.pushViewController(screen)
     }
     
-    static func pushThreeScreen(configuration: Configuration) {
+    private static func pushThreeScreen(configuration: Configuration) {
         var completion: (() -> Void)?
         let screen = configuration.screenBuilder.three(
             analyticsTracker: configuration.analyticsTracker,
@@ -46,7 +46,7 @@ struct NumberCoordinator<
         }
     }
  
-    static func presentCompletionAlert(on presentingScreen: ViewController?, configuration: Configuration) {
+    private static func presentCompletionAlert(on presentingScreen: ViewController?, configuration: Configuration) {
         let screen = configuration.screenBuilder.completionAlert(startAgain: configuration.completion)
         presentingScreen?.present(screen)
     }
