@@ -2,21 +2,21 @@ import XCTest
 @testable import StaticCoordinators
 
 class NumberCoordinatorTests: XCTestCase {
-    var screenFactory: MockNumberScreenFactoryProtocol!
+    var screenBuilder: MockNumberScreenBuilding!
     var navigationController: MockNavigationControlling!
-    var configuration: NumberCoordinator<MockNavigationControlling, MockViewControlling, MockNumberScreenFactoryProtocol>.Configuration!
+    var configuration: NumberCoordinator<MockNavigationControlling, MockViewControlling, MockNumberScreenBuilding>.Configuration!
     var analyticsTracker: MockAnalyticsTracking!
     var completion: (() -> Void)!
     var dismiss: (() -> Void)!
 
     override func setUp() {
         navigationController = .init()
-        screenFactory = .init()
+        screenBuilder = .init()
         analyticsTracker = .init()
         
         configuration = .init(
             navigationController: navigationController,
-            screenFactory: screenFactory,
+            screenBuilder: screenBuilder,
             analyticsTracker: analyticsTracker,
             completion: { [unowned self] in self.completion() },
             dismiss: { [unowned self] in self.dismiss() }
@@ -28,7 +28,7 @@ class NumberCoordinatorTests: XCTestCase {
         let testScreen = MockViewControlling()
         var screen: MockViewControlling?
 
-        screenFactory.mockOne = { _, _, _ in testScreen }
+        screenBuilder.mockOne = { _, _, _ in testScreen }
         navigationController.mockPushViewController = { mockScreen, _ in screen = mockScreen }
 
         // When
@@ -43,7 +43,7 @@ class NumberCoordinatorTests: XCTestCase {
         var dismiss: (() -> Void)?
         var dismissed = false
 
-        screenFactory.mockOne = { _, _, mockDismiss in
+        screenBuilder.mockOne = { _, _, mockDismiss in
             dismiss = mockDismiss
             return MockViewControlling()
         }
@@ -65,7 +65,7 @@ class NumberCoordinatorTests: XCTestCase {
         var screen: MockViewControlling?
         let completeOne = setupOneCompletion()
 
-        screenFactory.mockTwo = { _, _, _ in testScreen }
+        screenBuilder.mockTwo = { _, _, _ in testScreen }
         navigationController.mockPushViewController = { mockScreen, _ in screen = mockScreen }
 
         // When
@@ -82,7 +82,7 @@ class NumberCoordinatorTests: XCTestCase {
         var dismissed = false
         let completeOne = setupOneCompletion()
 
-        screenFactory.mockTwo = { _, _, mockDismiss in
+        screenBuilder.mockTwo = { _, _, mockDismiss in
             dismiss = mockDismiss
             return MockViewControlling()
         }
@@ -106,9 +106,9 @@ class NumberCoordinatorTests: XCTestCase {
         let completeOne = setupOneCompletion()
         let completeTwo = setupTwoCompletion()
 
-        screenFactory.mockThree = { _, _, _ in testScreen }
+        screenBuilder.mockThree = { _, _, _ in testScreen }
         navigationController.mockPushViewController = { mockScreen, _ in screen = mockScreen }
-
+        
         // When
         NumberCoordinator.start(configuration: configuration)
         completeOne()
@@ -125,7 +125,7 @@ class NumberCoordinatorTests: XCTestCase {
         let completeOne = setupOneCompletion()
         let completeTwo = setupTwoCompletion()
 
-        screenFactory.mockThree = { _, _, mockDismiss in
+        screenBuilder.mockThree = { _, _, mockDismiss in
             dismiss = mockDismiss
             return MockViewControlling()
         }
@@ -152,7 +152,7 @@ class NumberCoordinatorTests: XCTestCase {
         let completeTwo = setupTwoCompletion()
         let completeThree = setupThreeCompletion(with: presentingScreen)
 
-        screenFactory.mockCompletionAlert = { _ in testScreen }
+        screenBuilder.mockCompletionAlert = { _ in testScreen }
         navigationController.mockPushViewController = { _, _ in }
         presentingScreen.mockPresent = { mockScreen, _, _ in screen = mockScreen }
 
@@ -175,7 +175,7 @@ class NumberCoordinatorTests: XCTestCase {
         let completeTwo = setupTwoCompletion()
         let completeThree = setupThreeCompletion(with: presentingScreen)
 
-        screenFactory.mockCompletionAlert = { mockCompletion in
+        screenBuilder.mockCompletionAlert = { mockCompletion in
             completion = mockCompletion
             return MockViewControlling()
         }
@@ -200,7 +200,7 @@ extension NumberCoordinatorTests {
     private func setupOneCompletion() -> () -> Void {
         var completion: (() -> Void)?
 
-        screenFactory.mockOne = { _, mockCompletion, _ in
+        screenBuilder.mockOne = { _, mockCompletion, _ in
             completion = mockCompletion
             return MockViewControlling()
         }
@@ -211,7 +211,7 @@ extension NumberCoordinatorTests {
     private func setupTwoCompletion() -> () -> Void {
         var completion: (() -> Void)?
 
-        screenFactory.mockTwo = { _, mockCompletion, _ in
+        screenBuilder.mockTwo = { _, mockCompletion, _ in
             completion = mockCompletion
             return MockViewControlling()
         }
@@ -222,7 +222,7 @@ extension NumberCoordinatorTests {
     private func setupThreeCompletion(with viewController: MockViewControlling = .init()) -> () -> Void {
         var completion: (() -> Void)?
 
-        screenFactory.mockThree = { _, mockCompletion, _ in
+        screenBuilder.mockThree = { _, mockCompletion, _ in
             completion = mockCompletion
             return viewController
         }

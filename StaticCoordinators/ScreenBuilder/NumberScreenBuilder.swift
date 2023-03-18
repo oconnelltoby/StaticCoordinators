@@ -1,6 +1,6 @@
 import UIKit
 
-protocol NumberScreenFactoryProtocol<ViewController> {
+protocol NumberScreenBuilding<ViewController> {
     associatedtype ViewController: ViewControlling
     
     func one(
@@ -24,7 +24,7 @@ protocol NumberScreenFactoryProtocol<ViewController> {
     func completionAlert(startAgain: @escaping () -> Void) -> ViewController
 }
 
-struct NumberViewControllerFactory: NumberScreenFactoryProtocol {
+struct NumberScreenBuilder: NumberScreenBuilding {
     typealias ViewController = UIViewController
     
     func one(

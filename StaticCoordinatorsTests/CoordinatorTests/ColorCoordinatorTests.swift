@@ -2,16 +2,16 @@ import XCTest
 @testable import StaticCoordinators
 
 class ColorCoordinatorTests: XCTestCase {
-    var screenFactory: MockColorScreenFactoryProtocol!
+    var screenBuilder: MockColorScreenBuilding!
     var navigationController: MockNavigationControlling!
-    var configuration: ColorCoordinator<MockNavigationControlling, MockViewControlling, MockColorScreenFactoryProtocol>.Configuration!
+    var configuration: ColorCoordinator<MockNavigationControlling, MockViewControlling, MockColorScreenBuilding>.Configuration!
     var analyticsTracker: MockAnalyticsTracking!
     
     override func setUp() {
         navigationController = .init()
-        screenFactory = .init()
+        screenBuilder = .init()
         analyticsTracker = .init()
-        configuration = .init(navigationController: navigationController, screenFactory: screenFactory, analyticsTracker: analyticsTracker)
+        configuration = .init(navigationController: navigationController, screenBuilder: screenBuilder, analyticsTracker: analyticsTracker)
     }
 
     func testRed() {
@@ -19,7 +19,7 @@ class ColorCoordinatorTests: XCTestCase {
         let testScreen = MockViewControlling()
         var screen: MockViewControlling?
 
-        screenFactory.mockRed = { _, _ in testScreen }
+        screenBuilder.mockRed = { _, _ in testScreen }
         navigationController.mockPushViewController = { mockScreen, _ in screen = mockScreen }
 
         // When
@@ -35,7 +35,7 @@ class ColorCoordinatorTests: XCTestCase {
         var screen: MockViewControlling?
         let completeRed = setupRedCompletion()
         
-        screenFactory.mockGreen = { _, _ in testScreen }
+        screenBuilder.mockGreen = { _, _ in testScreen }
         navigationController.mockPushViewController = { mockScreen, _ in screen = mockScreen }
 
         // When
@@ -53,7 +53,7 @@ class ColorCoordinatorTests: XCTestCase {
         let completeRed = setupRedCompletion()
         let completeGreen = setupGreenCompletion()
         
-        screenFactory.mockBlue = { _, _ in testScreen }
+        screenBuilder.mockBlue = { _, _ in testScreen }
         navigationController.mockPushViewController = { mockScreen, _ in screen = mockScreen }
 
         // When
@@ -75,7 +75,7 @@ class ColorCoordinatorTests: XCTestCase {
         let completeBlue = setupBlueCompletion(with: presentingScreen)
 
         navigationController.mockPushViewController = { _, _ in }
-        screenFactory.mockNumberCoordinator = { _, _, _ in presentedScreen }
+        screenBuilder.mockNumberCoordinator = { _, _, _ in presentedScreen }
         presentingScreen.mockPresent = { mockScreen, _, _ in screen = mockScreen }
 
         // When
@@ -152,7 +152,7 @@ extension ColorCoordinatorTests {
     private func setupRedCompletion() -> () -> Void {
         var completion: (() -> Void)?
         
-        screenFactory.mockRed = { _, mockCompletion in
+        screenBuilder.mockRed = { _, mockCompletion in
             completion = mockCompletion
             return MockViewControlling()
         }
@@ -163,7 +163,7 @@ extension ColorCoordinatorTests {
     private func setupGreenCompletion() -> () -> Void {
         var completion: (() -> Void)?
         
-        screenFactory.mockGreen = { _, mockCompletion in
+        screenBuilder.mockGreen = { _, mockCompletion in
             completion = mockCompletion
             return MockViewControlling()
         }
@@ -174,7 +174,7 @@ extension ColorCoordinatorTests {
     private func setupBlueCompletion(with presenting: MockViewControlling = .init()) -> () -> Void {
         var completion: (() -> Void)?
         
-        screenFactory.mockBlue = { _, mockCompletion in
+        screenBuilder.mockBlue = { _, mockCompletion in
             completion = mockCompletion
             return presenting
         }
@@ -185,7 +185,7 @@ extension ColorCoordinatorTests {
     private func setupNumberCoordinatorCompletion() -> () -> Void {
         var completion: (() -> Void)?
         
-        screenFactory.mockNumberCoordinator = { _, mockCompletion, _ in
+        screenBuilder.mockNumberCoordinator = { _, mockCompletion, _ in
             completion = mockCompletion
             return MockViewControlling()
         }
@@ -196,7 +196,7 @@ extension ColorCoordinatorTests {
     private func setupNumberCoordinatorDismiss() -> () -> Void {
         var dismiss: (() -> Void)?
         
-        screenFactory.mockNumberCoordinator = { _, _, mockDismiss in
+        screenBuilder.mockNumberCoordinator = { _, _, mockDismiss in
             dismiss = mockDismiss
             return MockViewControlling()
         }

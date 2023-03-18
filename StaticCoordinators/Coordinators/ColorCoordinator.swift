@@ -1,11 +1,11 @@
 struct ColorCoordinator<
     NavigationController: AnyObject & NavigationControlling<ViewController>,
     ViewController: AnyObject & ViewControlling<ViewController>,
-    ScreenFactory: ColorScreenFactoryProtocol<ViewController>
+    ScreenBuilder: ColorScreenBuilding<ViewController>
 > {
     struct Configuration {
         weak var navigationController: NavigationController?
-        var screenFactory: ScreenFactory
+        var screenBuilder: ScreenBuilder
         var analyticsTracker: AnalyticsTracking
     }
     
@@ -14,7 +14,7 @@ struct ColorCoordinator<
     }
     
     private static func pushRedScreen(configuration: Configuration) {
-        let screen = configuration.screenFactory.red(
+        let screen = configuration.screenBuilder.red(
             analyticsTracker: configuration.analyticsTracker,
             completion: { pushGreenScreen(configuration: configuration) }
         )
@@ -22,7 +22,7 @@ struct ColorCoordinator<
     }
     
     private static func pushGreenScreen(configuration: Configuration) {
-        let screen = configuration.screenFactory.green(
+        let screen = configuration.screenBuilder.green(
             analyticsTracker: configuration.analyticsTracker,
             completion: { pushBlueScreen(configuration: configuration) }
         )
@@ -31,7 +31,7 @@ struct ColorCoordinator<
     
     private static func pushBlueScreen(configuration: Configuration) {
         var completion: (() -> Void)?
-        let screen = configuration.screenFactory.blue(
+        let screen = configuration.screenBuilder.blue(
             analyticsTracker: configuration.analyticsTracker,
             completion: { completion?() }
         )
@@ -45,7 +45,7 @@ struct ColorCoordinator<
         var completion: (() -> Void)?
         var dismiss: (() -> Void)?
 
-        let screen = configuration.screenFactory.numberCoordinator(
+        let screen = configuration.screenBuilder.numberCoordinator(
             analyticsTracker: configuration.analyticsTracker,
             completion: { completion?() },
             dismiss: { dismiss?() }

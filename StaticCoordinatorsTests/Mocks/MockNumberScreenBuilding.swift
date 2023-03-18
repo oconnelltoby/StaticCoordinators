@@ -1,6 +1,6 @@
 @testable import StaticCoordinators
 
-class MockNumberScreenFactoryProtocol: NumberScreenFactoryProtocol {
+class MockNumberScreenBuilding: NumberScreenBuilding {
     typealias NavigationController = MockNavigationControlling
     typealias ViewController = MockViewControlling
     

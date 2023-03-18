@@ -1,6 +1,6 @@
 import UIKit
 
-protocol ColorScreenFactoryProtocol<ViewController> {
+protocol ColorScreenBuilding<ViewController> {
     associatedtype ViewController: ViewControlling
     
     func red(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> ViewController
@@ -13,7 +13,7 @@ protocol ColorScreenFactoryProtocol<ViewController> {
     ) -> ViewController
 }
 
-struct ColorViewControllerFactory: ColorScreenFactoryProtocol {
+struct ColorScreenBuilder: ColorScreenBuilding {
     typealias ViewController = UIViewController
     
     func red(analyticsTracker: AnalyticsTracking, completion: @escaping () -> Void) -> UIViewController {
@@ -37,7 +37,7 @@ struct ColorViewControllerFactory: ColorScreenFactoryProtocol {
         
         let configuration = NumberCoordinator.Configuration(
             navigationController: navigationController,
-            screenFactory: NumberViewControllerFactory(),
+            screenBuilder: NumberScreenBuilder(),
             analyticsTracker: analyticsTracker,
             completion: completion,
             dismiss: dismiss
