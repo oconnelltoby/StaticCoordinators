@@ -12,13 +12,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         window?.tintColor = .label
         
-        let configuration = ColorCoordinator.Configuration(
+        let configuration = InitialCoordinator.Configuration(
             navigationController: navigationController,
-            screenBuilder: ColorScreenBuilder(),
+            screenBuilder: InitialScreenBuilder(),
             analyticsTracker: AnalyticsPrinter()
         )
         
-        ColorCoordinator<UINavigationController, UIViewController, ColorScreenBuilder>.start(configuration: configuration)
+        InitialCoordinator.start(configuration: configuration)
     }
 }
 
