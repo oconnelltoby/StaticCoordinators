@@ -1,4 +1,5 @@
 import UIKit
+import Initial
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?

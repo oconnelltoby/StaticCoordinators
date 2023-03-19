@@ -7,98 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F1320CA529C4E98300528BCA /* TabBarControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CA429C4E98300528BCA /* TabBarControlling.swift */; };
-		F1320CB529C6051B00528BCA /* MockTabBarControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CB429C6051B00528BCA /* MockTabBarControlling.swift */; };
-		F1320CB929C6133C00528BCA /* AlphabetScreenEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CB829C6133C00528BCA /* AlphabetScreenEvents.swift */; };
-		F1320CBB29C6134600528BCA /* AlphabetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CBA29C6134600528BCA /* AlphabetCoordinator.swift */; };
-		F1320CBD29C6135B00528BCA /* AlphabetScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CBC29C6135B00528BCA /* AlphabetScreenBuilder.swift */; };
-		F1320CBF29C6136B00528BCA /* AlphabetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CBE29C6136B00528BCA /* AlphabetViewController.swift */; };
-		F1320CC129C6139E00528BCA /* AlphabetCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CC029C6139E00528BCA /* AlphabetCoordinatorTests.swift */; };
-		F1320CC329C613CB00528BCA /* MockAlphabetScreenBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CC229C613CB00528BCA /* MockAlphabetScreenBuilding.swift */; };
-		F1320CC529C614B200528BCA /* AlphabetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CC429C614B200528BCA /* AlphabetViewModelTests.swift */; };
-		F1320CC729C615A000528BCA /* InitialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CC629C615A000528BCA /* InitialCoordinator.swift */; };
-		F1320CC929C615A900528BCA /* InitialScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CC829C615A900528BCA /* InitialScreenBuilder.swift */; };
-		F1320CCB29C6175E00528BCA /* InitialCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CCA29C6175E00528BCA /* InitialCoordinatorTests.swift */; };
-		F1320CCD29C617A300528BCA /* MockInitialScreenBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1320CCC29C617A300528BCA /* MockInitialScreenBuilding.swift */; };
-		F1605BD428A1C4120070CC08 /* NavigationControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BD328A1C4120070CC08 /* NavigationControlling.swift */; };
-		F1605BD628A1C43F0070CC08 /* ViewControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BD528A1C43F0070CC08 /* ViewControlling.swift */; };
-		F1605BDF28A62F9D0070CC08 /* NumberCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BDE28A62F9D0070CC08 /* NumberCoordinator.swift */; };
-		F1605BE228A630190070CC08 /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BE128A630190070CC08 /* NumberViewController.swift */; };
-		F1605BE428A633B80070CC08 /* NumberScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BE328A633B80070CC08 /* NumberScreenBuilder.swift */; };
-		F1605BE828A90D0E0070CC08 /* NumberCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BE728A90D0E0070CC08 /* NumberCoordinatorTests.swift */; };
-		F1605BEB28A90D280070CC08 /* MockViewControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BEA28A90D280070CC08 /* MockViewControlling.swift */; };
-		F1605BED28A90D4D0070CC08 /* MockNavigationControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BEC28A90D4D0070CC08 /* MockNavigationControlling.swift */; };
-		F1605BEF28A990C90070CC08 /* MockColorScreenBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BEE28A990C90070CC08 /* MockColorScreenBuilding.swift */; };
-		F1605BF128A991610070CC08 /* ColorCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BF028A991610070CC08 /* ColorCoordinatorTests.swift */; };
-		F1605BF328A99FF00070CC08 /* MockNumberScreenBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BF228A99FF00070CC08 /* MockNumberScreenBuilding.swift */; };
-		F1605BFD28A9ACA90070CC08 /* ColorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BFC28A9ACA80070CC08 /* ColorViewModelTests.swift */; };
-		F1605BFF28A9ADB50070CC08 /* NumberViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1605BFE28A9ADB50070CC08 /* NumberViewModelTests.swift */; };
+		F166797129C7A3E900F58BE6 /* Initial in Frameworks */ = {isa = PBXBuildFile; productRef = F166797029C7A3E900F58BE6 /* Initial */; };
 		F1DE3007289DA55600AFF4A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE3006289DA55600AFF4A8 /* AppDelegate.swift */; };
 		F1DE3009289DA55600AFF4A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE3008289DA55600AFF4A8 /* SceneDelegate.swift */; };
-		F1DE300B289DA55600AFF4A8 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE300A289DA55600AFF4A8 /* ColorViewController.swift */; };
 		F1DE3013289DA55800AFF4A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1DE3011289DA55800AFF4A8 /* LaunchScreen.storyboard */; };
-		F1DE3037289DA5D700AFF4A8 /* ColorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE3036289DA5D700AFF4A8 /* ColorCoordinator.swift */; };
-		F1DE3039289DA63D00AFF4A8 /* ColorScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE3038289DA63D00AFF4A8 /* ColorScreenBuilder.swift */; };
-		F1DE303B289DE12100AFF4A8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE303A289DE12100AFF4A8 /* Extensions.swift */; };
-		F1F82C6828ACD1D700CEE025 /* AnalyticsTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C6728ACD1D700CEE025 /* AnalyticsTracking.swift */; };
 		F1F82C6B28ACD4FC00CEE025 /* AnalyticsPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C6A28ACD4FC00CEE025 /* AnalyticsPrinter.swift */; };
-		F1F82C7028ACD55100CEE025 /* NumberScreenEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C6F28ACD55100CEE025 /* NumberScreenEvents.swift */; };
-		F1F82C7228ACD55B00CEE025 /* ColorScreenEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C7128ACD55B00CEE025 /* ColorScreenEvents.swift */; };
-		F1F82C7428ACDC7700CEE025 /* MockAnalyticsTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F82C7328ACDC7700CEE025 /* MockAnalyticsTracking.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F1DE301A289DA55800AFF4A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1DE2FFB289DA55600AFF4A8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F1DE3002289DA55600AFF4A8;
-			remoteInfo = StaticCoorinators;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		F1320CA429C4E98300528BCA /* TabBarControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControlling.swift; sourceTree = "<group>"; };
-		F1320CB429C6051B00528BCA /* MockTabBarControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTabBarControlling.swift; sourceTree = "<group>"; };
-		F1320CB829C6133C00528BCA /* AlphabetScreenEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetScreenEvents.swift; sourceTree = "<group>"; };
-		F1320CBA29C6134600528BCA /* AlphabetCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetCoordinator.swift; sourceTree = "<group>"; };
-		F1320CBC29C6135B00528BCA /* AlphabetScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetScreenBuilder.swift; sourceTree = "<group>"; };
-		F1320CBE29C6136B00528BCA /* AlphabetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetViewController.swift; sourceTree = "<group>"; };
-		F1320CC029C6139E00528BCA /* AlphabetCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetCoordinatorTests.swift; sourceTree = "<group>"; };
-		F1320CC229C613CB00528BCA /* MockAlphabetScreenBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAlphabetScreenBuilding.swift; sourceTree = "<group>"; };
-		F1320CC429C614B200528BCA /* AlphabetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewModelTests.swift; sourceTree = "<group>"; };
-		F1320CC629C615A000528BCA /* InitialCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialCoordinator.swift; sourceTree = "<group>"; };
-		F1320CC829C615A900528BCA /* InitialScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScreenBuilder.swift; sourceTree = "<group>"; };
-		F1320CCA29C6175E00528BCA /* InitialCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoordinatorTests.swift; sourceTree = "<group>"; };
-		F1320CCC29C617A300528BCA /* MockInitialScreenBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInitialScreenBuilding.swift; sourceTree = "<group>"; };
-		F1605BD328A1C4120070CC08 /* NavigationControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControlling.swift; sourceTree = "<group>"; };
-		F1605BD528A1C43F0070CC08 /* ViewControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControlling.swift; sourceTree = "<group>"; };
-		F1605BDE28A62F9D0070CC08 /* NumberCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCoordinator.swift; sourceTree = "<group>"; };
-		F1605BE128A630190070CC08 /* NumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
-		F1605BE328A633B80070CC08 /* NumberScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberScreenBuilder.swift; sourceTree = "<group>"; };
-		F1605BE728A90D0E0070CC08 /* NumberCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCoordinatorTests.swift; sourceTree = "<group>"; };
-		F1605BEA28A90D280070CC08 /* MockViewControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewControlling.swift; sourceTree = "<group>"; };
-		F1605BEC28A90D4D0070CC08 /* MockNavigationControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationControlling.swift; sourceTree = "<group>"; };
-		F1605BEE28A990C90070CC08 /* MockColorScreenBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockColorScreenBuilding.swift; sourceTree = "<group>"; };
-		F1605BF028A991610070CC08 /* ColorCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCoordinatorTests.swift; sourceTree = "<group>"; };
-		F1605BF228A99FF00070CC08 /* MockNumberScreenBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNumberScreenBuilding.swift; sourceTree = "<group>"; };
-		F1605BFC28A9ACA80070CC08 /* ColorViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewModelTests.swift; sourceTree = "<group>"; };
-		F1605BFE28A9ADB50070CC08 /* NumberViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModelTests.swift; sourceTree = "<group>"; };
+		F166794929C787B800F58BE6 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 		F1DE3003289DA55600AFF4A8 /* StaticCoordinators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaticCoordinators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DE3006289DA55600AFF4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1DE3008289DA55600AFF4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F1DE300A289DA55600AFF4A8 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		F1DE3012289DA55800AFF4A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1DE3014289DA55800AFF4A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1DE3019289DA55800AFF4A8 /* StaticCoordinatorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaticCoordinatorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1DE3036289DA5D700AFF4A8 /* ColorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCoordinator.swift; sourceTree = "<group>"; };
-		F1DE3038289DA63D00AFF4A8 /* ColorScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScreenBuilder.swift; sourceTree = "<group>"; };
-		F1DE303A289DE12100AFF4A8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F1F82C6728ACD1D700CEE025 /* AnalyticsTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTracking.swift; sourceTree = "<group>"; };
 		F1F82C6A28ACD4FC00CEE025 /* AnalyticsPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPrinter.swift; sourceTree = "<group>"; };
-		F1F82C6F28ACD55100CEE025 /* NumberScreenEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberScreenEvents.swift; sourceTree = "<group>"; };
-		F1F82C7128ACD55B00CEE025 /* ColorScreenEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScreenEvents.swift; sourceTree = "<group>"; };
-		F1F82C7328ACDC7700CEE025 /* MockAnalyticsTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnalyticsTracking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,103 +29,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F1DE3016289DA55800AFF4A8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				F166797129C7A3E900F58BE6 /* Initial in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F1605BD228A1C4060070CC08 /* Navigation  */ = {
-			isa = PBXGroup;
-			children = (
-				F1DE303A289DE12100AFF4A8 /* Extensions.swift */,
-				F1605BD328A1C4120070CC08 /* NavigationControlling.swift */,
-				F1605BD528A1C43F0070CC08 /* ViewControlling.swift */,
-				F1320CA429C4E98300528BCA /* TabBarControlling.swift */,
-			);
-			path = "Navigation ";
-			sourceTree = "<group>";
-		};
-		F1605BD928A1CA1F0070CC08 /* ScreenBuilder */ = {
-			isa = PBXGroup;
-			children = (
-				F1320CC829C615A900528BCA /* InitialScreenBuilder.swift */,
-				F1320CBC29C6135B00528BCA /* AlphabetScreenBuilder.swift */,
-				F1605BE328A633B80070CC08 /* NumberScreenBuilder.swift */,
-				F1DE3038289DA63D00AFF4A8 /* ColorScreenBuilder.swift */,
-			);
-			path = ScreenBuilder;
-			sourceTree = "<group>";
-		};
-		F1605BDD28A62F650070CC08 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				F1320CC629C615A000528BCA /* InitialCoordinator.swift */,
-				F1DE3036289DA5D700AFF4A8 /* ColorCoordinator.swift */,
-				F1605BDE28A62F9D0070CC08 /* NumberCoordinator.swift */,
-				F1320CBA29C6134600528BCA /* AlphabetCoordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		F1605BE028A62FE50070CC08 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				F1320CBE29C6136B00528BCA /* AlphabetViewController.swift */,
-				F1DE300A289DA55600AFF4A8 /* ColorViewController.swift */,
-				F1605BE128A630190070CC08 /* NumberViewController.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		F1605BE928A90D1A0070CC08 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				F1605BEA28A90D280070CC08 /* MockViewControlling.swift */,
-				F1320CCC29C617A300528BCA /* MockInitialScreenBuilding.swift */,
-				F1605BEC28A90D4D0070CC08 /* MockNavigationControlling.swift */,
-				F1605BEE28A990C90070CC08 /* MockColorScreenBuilding.swift */,
-				F1605BF228A99FF00070CC08 /* MockNumberScreenBuilding.swift */,
-				F1F82C7328ACDC7700CEE025 /* MockAnalyticsTracking.swift */,
-				F1320CB429C6051B00528BCA /* MockTabBarControlling.swift */,
-				F1320CC229C613CB00528BCA /* MockAlphabetScreenBuilding.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		F1605BF628A9AC670070CC08 /* CoordinatorTests */ = {
-			isa = PBXGroup;
-			children = (
-				F1320CC029C6139E00528BCA /* AlphabetCoordinatorTests.swift */,
-				F1605BE728A90D0E0070CC08 /* NumberCoordinatorTests.swift */,
-				F1605BF028A991610070CC08 /* ColorCoordinatorTests.swift */,
-				F1320CCA29C6175E00528BCA /* InitialCoordinatorTests.swift */,
-			);
-			path = CoordinatorTests;
-			sourceTree = "<group>";
-		};
-		F1605BFB28A9ACA80070CC08 /* ViewModelTests */ = {
-			isa = PBXGroup;
-			children = (
-				F1605BFC28A9ACA80070CC08 /* ColorViewModelTests.swift */,
-				F1320CC429C614B200528BCA /* AlphabetViewModelTests.swift */,
-				F1605BFE28A9ADB50070CC08 /* NumberViewModelTests.swift */,
-			);
-			path = ViewModelTests;
-			sourceTree = "<group>";
-		};
 		F1DE2FFA289DA55600AFF4A8 = {
 			isa = PBXGroup;
 			children = (
+				F166794929C787B800F58BE6 /* Core */,
 				F1DE3005289DA55600AFF4A8 /* StaticCoordinators */,
-				F1DE301C289DA55800AFF4A8 /* StaticCoordinatorsTests */,
 				F1DE3004289DA55600AFF4A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -211,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				F1DE3003289DA55600AFF4A8 /* StaticCoordinators.app */,
-				F1DE3019289DA55800AFF4A8 /* StaticCoordinatorsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,47 +56,13 @@
 		F1DE3005289DA55600AFF4A8 /* StaticCoordinators */ = {
 			isa = PBXGroup;
 			children = (
-				F1F82C6928ACD4A900CEE025 /* AnalyticsTracking */,
-				F1605BE028A62FE50070CC08 /* Screens */,
-				F1605BDD28A62F650070CC08 /* Coordinators */,
-				F1605BD928A1CA1F0070CC08 /* ScreenBuilder */,
-				F1605BD228A1C4060070CC08 /* Navigation  */,
+				F1F82C6A28ACD4FC00CEE025 /* AnalyticsPrinter.swift */,
 				F1DE3006289DA55600AFF4A8 /* AppDelegate.swift */,
 				F1DE3008289DA55600AFF4A8 /* SceneDelegate.swift */,
 				F1DE3011289DA55800AFF4A8 /* LaunchScreen.storyboard */,
 				F1DE3014289DA55800AFF4A8 /* Info.plist */,
 			);
 			path = StaticCoordinators;
-			sourceTree = "<group>";
-		};
-		F1DE301C289DA55800AFF4A8 /* StaticCoordinatorsTests */ = {
-			isa = PBXGroup;
-			children = (
-				F1605BFB28A9ACA80070CC08 /* ViewModelTests */,
-				F1605BF628A9AC670070CC08 /* CoordinatorTests */,
-				F1605BE928A90D1A0070CC08 /* Mocks */,
-			);
-			path = StaticCoordinatorsTests;
-			sourceTree = "<group>";
-		};
-		F1F82C6928ACD4A900CEE025 /* AnalyticsTracking */ = {
-			isa = PBXGroup;
-			children = (
-				F1F82C6C28ACD53000CEE025 /* Events */,
-				F1F82C6728ACD1D700CEE025 /* AnalyticsTracking.swift */,
-				F1F82C6A28ACD4FC00CEE025 /* AnalyticsPrinter.swift */,
-			);
-			path = AnalyticsTracking;
-			sourceTree = "<group>";
-		};
-		F1F82C6C28ACD53000CEE025 /* Events */ = {
-			isa = PBXGroup;
-			children = (
-				F1320CB829C6133C00528BCA /* AlphabetScreenEvents.swift */,
-				F1F82C6F28ACD55100CEE025 /* NumberScreenEvents.swift */,
-				F1F82C7128ACD55B00CEE025 /* ColorScreenEvents.swift */,
-			);
-			path = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,27 +81,12 @@
 			dependencies = (
 			);
 			name = StaticCoordinators;
+			packageProductDependencies = (
+				F166797029C7A3E900F58BE6 /* Initial */,
+			);
 			productName = StaticCoorinators;
 			productReference = F1DE3003289DA55600AFF4A8 /* StaticCoordinators.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F1DE3018289DA55800AFF4A8 /* StaticCoordinatorsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F1DE3030289DA55800AFF4A8 /* Build configuration list for PBXNativeTarget "StaticCoordinatorsTests" */;
-			buildPhases = (
-				F1DE3015289DA55800AFF4A8 /* Sources */,
-				F1DE3016289DA55800AFF4A8 /* Frameworks */,
-				F1DE3017289DA55800AFF4A8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F1DE301B289DA55800AFF4A8 /* PBXTargetDependency */,
-			);
-			name = StaticCoordinatorsTests;
-			productName = StaticCoorinatorsTests;
-			productReference = F1DE3019289DA55800AFF4A8 /* StaticCoordinatorsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -312,10 +100,6 @@
 				TargetAttributes = {
 					F1DE3002289DA55600AFF4A8 = {
 						CreatedOnToolsVersion = 13.2.1;
-					};
-					F1DE3018289DA55800AFF4A8 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = F1DE3002289DA55600AFF4A8;
 					};
 				};
 			};
@@ -333,7 +117,6 @@
 			projectRoot = "";
 			targets = (
 				F1DE3002289DA55600AFF4A8 /* StaticCoordinators */,
-				F1DE3018289DA55800AFF4A8 /* StaticCoordinatorsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -347,13 +130,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1DE3017289DA55800AFF4A8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -361,62 +137,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1605BE428A633B80070CC08 /* NumberScreenBuilder.swift in Sources */,
-				F1F82C6828ACD1D700CEE025 /* AnalyticsTracking.swift in Sources */,
-				F1DE3037289DA5D700AFF4A8 /* ColorCoordinator.swift in Sources */,
-				F1320CBF29C6136B00528BCA /* AlphabetViewController.swift in Sources */,
-				F1F82C7228ACD55B00CEE025 /* ColorScreenEvents.swift in Sources */,
-				F1320CBD29C6135B00528BCA /* AlphabetScreenBuilder.swift in Sources */,
-				F1DE303B289DE12100AFF4A8 /* Extensions.swift in Sources */,
-				F1DE3039289DA63D00AFF4A8 /* ColorScreenBuilder.swift in Sources */,
-				F1605BD628A1C43F0070CC08 /* ViewControlling.swift in Sources */,
-				F1320CBB29C6134600528BCA /* AlphabetCoordinator.swift in Sources */,
-				F1605BDF28A62F9D0070CC08 /* NumberCoordinator.swift in Sources */,
-				F1F82C7028ACD55100CEE025 /* NumberScreenEvents.swift in Sources */,
-				F1320CC929C615A900528BCA /* InitialScreenBuilder.swift in Sources */,
-				F1320CA529C4E98300528BCA /* TabBarControlling.swift in Sources */,
-				F1320CB929C6133C00528BCA /* AlphabetScreenEvents.swift in Sources */,
-				F1DE300B289DA55600AFF4A8 /* ColorViewController.swift in Sources */,
 				F1DE3007289DA55600AFF4A8 /* AppDelegate.swift in Sources */,
-				F1320CC729C615A000528BCA /* InitialCoordinator.swift in Sources */,
 				F1F82C6B28ACD4FC00CEE025 /* AnalyticsPrinter.swift in Sources */,
-				F1605BE228A630190070CC08 /* NumberViewController.swift in Sources */,
-				F1605BD428A1C4120070CC08 /* NavigationControlling.swift in Sources */,
 				F1DE3009289DA55600AFF4A8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1DE3015289DA55800AFF4A8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F1320CC329C613CB00528BCA /* MockAlphabetScreenBuilding.swift in Sources */,
-				F1320CCB29C6175E00528BCA /* InitialCoordinatorTests.swift in Sources */,
-				F1605BF128A991610070CC08 /* ColorCoordinatorTests.swift in Sources */,
-				F1605BEF28A990C90070CC08 /* MockColorScreenBuilding.swift in Sources */,
-				F1605BFD28A9ACA90070CC08 /* ColorViewModelTests.swift in Sources */,
-				F1605BED28A90D4D0070CC08 /* MockNavigationControlling.swift in Sources */,
-				F1605BF328A99FF00070CC08 /* MockNumberScreenBuilding.swift in Sources */,
-				F1320CC129C6139E00528BCA /* AlphabetCoordinatorTests.swift in Sources */,
-				F1320CB529C6051B00528BCA /* MockTabBarControlling.swift in Sources */,
-				F1320CC529C614B200528BCA /* AlphabetViewModelTests.swift in Sources */,
-				F1320CCD29C617A300528BCA /* MockInitialScreenBuilding.swift in Sources */,
-				F1605BFF28A9ADB50070CC08 /* NumberViewModelTests.swift in Sources */,
-				F1F82C7428ACDC7700CEE025 /* MockAnalyticsTracking.swift in Sources */,
-				F1605BE828A90D0E0070CC08 /* NumberCoordinatorTests.swift in Sources */,
-				F1605BEB28A90D280070CC08 /* MockViewControlling.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F1DE301B289DA55800AFF4A8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F1DE3002289DA55600AFF4A8 /* StaticCoordinators */;
-			targetProxy = F1DE301A289DA55800AFF4A8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F1DE3011289DA55800AFF4A8 /* LaunchScreen.storyboard */ = {
@@ -600,46 +327,6 @@
 			};
 			name = Release;
 		};
-		F1DE3031289DA55800AFF4A8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 682USD46BN;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = oconnelltoby.StaticCoordinatorsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StaticCoordinators.app/StaticCoordinators";
-			};
-			name = Debug;
-		};
-		F1DE3032289DA55800AFF4A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 682USD46BN;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = oconnelltoby.StaticCoordinatorsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StaticCoordinators.app/StaticCoordinators";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -661,16 +348,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1DE3030289DA55800AFF4A8 /* Build configuration list for PBXNativeTarget "StaticCoordinatorsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F1DE3031289DA55800AFF4A8 /* Debug */,
-				F1DE3032289DA55800AFF4A8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F166797029C7A3E900F58BE6 /* Initial */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Initial;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F1DE2FFB289DA55600AFF4A8 /* Project object */;
 }
