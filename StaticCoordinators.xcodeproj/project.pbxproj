@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F166797129C7A3E900F58BE6 /* Initial in Frameworks */ = {isa = PBXBuildFile; productRef = F166797029C7A3E900F58BE6 /* Initial */; };
+		F166797429CBA7EC00F58BE6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F166797329CBA7EC00F58BE6 /* Media.xcassets */; };
 		F1DE3007289DA55600AFF4A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE3006289DA55600AFF4A8 /* AppDelegate.swift */; };
 		F1DE3009289DA55600AFF4A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE3008289DA55600AFF4A8 /* SceneDelegate.swift */; };
 		F1DE3013289DA55800AFF4A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1DE3011289DA55800AFF4A8 /* LaunchScreen.storyboard */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		F166794929C787B800F58BE6 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
+		F166797329CBA7EC00F58BE6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		F1DE3003289DA55600AFF4A8 /* StaticCoordinators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaticCoordinators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DE3006289DA55600AFF4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1DE3008289DA55600AFF4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				F1DE3008289DA55600AFF4A8 /* SceneDelegate.swift */,
 				F1DE3011289DA55800AFF4A8 /* LaunchScreen.storyboard */,
 				F1DE3014289DA55800AFF4A8 /* Info.plist */,
+				F166797329CBA7EC00F58BE6 /* Media.xcassets */,
 			);
 			path = StaticCoordinators;
 			sourceTree = "<group>";
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F166797429CBA7EC00F58BE6 /* Media.xcassets in Resources */,
 				F1DE3013289DA55800AFF4A8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
